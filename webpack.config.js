@@ -14,5 +14,17 @@ module.exports = {
       name: 'bahuangUtils',
       type: 'umd'
     },
+  },
+  externals: {
+    xss: {
+      commonjs: 'xss',
+      commonjs2: 'xss',
+      amd: 'xss',
+    },
+    Cookie: {
+      commonjs: 'Cookie',
+      commonjs2: 'Cookie',
+      amd: 'Cookie',
+    }
   }
 }

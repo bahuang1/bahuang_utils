@@ -1,1 +1,5 @@
 export * from './normal/index'
+export * from './dateOp/index'
+export * from './safeOp/index'
+export * from './cookie/index'
+export * from './storage/index'

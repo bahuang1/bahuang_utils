@@ -1,6 +1,6 @@
 {
   "name": "bahuang_utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/bahuang-utils.js",
   "module": "./src/index.js",
@@ -19,5 +19,9 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "xss": "^1.0.9"
   }
 }
