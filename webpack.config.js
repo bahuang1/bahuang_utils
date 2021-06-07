@@ -5,6 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
   output: {
     filename: 'bahuang-utils.js',
