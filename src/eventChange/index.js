@@ -1,4 +1,4 @@
-class EventChange {
+class Index {
     list = {}
 
     on(key, fn) {
@@ -21,4 +21,4 @@ class EventChange {
     }
 }
 
-export default new EventChange()
+export default new Index()
