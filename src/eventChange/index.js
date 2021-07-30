@@ -1,15 +1,15 @@
-function EventChange() {
-    this.list = {}
+class EventChange {
+    list = {}
 
-    this.on = function (key, fn) {
+    on(key, fn) {
         if (!this.list[key]) {
             this.list[key] = []
         }
         this.list[key].push(fn)
     }
 
-    this.emit = function () {
-        let key = Array.prototype.shift.call(arguments)
+    emit() {
+        const key = Array.prototype.shift.call(arguments)
         let fns = this.list[key]
         if (!fns || fns.length === 0) {
             return
@@ -21,8 +21,8 @@ function EventChange() {
         }
     }
 
-    this.remove = function (key, fn) {
-        let fns = this.list[key]
+    remove(key, fn) {
+        const fns = this.list[key]
         if (!fns) {
             return
         }

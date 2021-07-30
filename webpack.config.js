@@ -16,6 +16,11 @@ module.exports = {
       type: 'umd'
     },
   },
+  module: {
+    rules: [
+      { test: /\.js$/, loader: 'babel' }
+    ]
+  },
   externals: {
     xss: {
       commonjs: 'xss',
