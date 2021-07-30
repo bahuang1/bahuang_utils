@@ -41,4 +41,4 @@ class EventChange {
     }
 }
 
-export default new EventChange()
+export const eventChange = new EventChange()
