@@ -1,17 +1,24 @@
 class EventChange {
     list = {}
+    cachedEvent = {}
 
     on(key, fn) {
+        if (typeof fn !== 'function') return;
         if (!this.list[key]) {
             this.list[key] = []
         }
         this.list[key].push(fn)
+        if (this.cachedEvent[key] instanceof Array) {
+            fn.apply(null, this.cachedEvent[key])
+        }
     }
 
     emit() {
         const key = Array.prototype.shift.call(arguments)
+        // if (this.list[key] instanceof Array) {}
         let fns = this.list[key]
         if (!fns || fns.length === 0) {
+            this.cachedEvent[key] = arguments
             return
         }
         let fn
