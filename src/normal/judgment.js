@@ -36,6 +36,14 @@ export function isObject (obj) {
   return obj !== null && typeof obj === 'object'
 }
 
+// check arg is Array
+export function isArray(arg) {
+  if (typeof Array.isArray === 'undefined') {
+    return Object.prototype.toString.call(arg) === '[object Array]'
+  }
+  return Array.isArray(arg)
+}
+
 /**
  * Check whether an object has the property.
  */
