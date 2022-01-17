@@ -1,4 +1,12 @@
 个人在项目中常用的一些方法，在此做一个分享
+### dialogExecute 函数式调用 vue 弹框组件
+```angular2html
+1. 初始化: 在 main.js 中引入 executeInit(Vue)
+
+2. 注册指令: 在 execute('command')调用 之前 先 strategyInstall('command')
+
+3. execute：指令执行，全局注册一次即可使用 execute('command')
+```
 ### cookie相关
 ```
     /**
