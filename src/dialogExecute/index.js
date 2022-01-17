@@ -38,13 +38,21 @@ class DialogExecute{
     return tempVueCom.$children[0]
   }
 
+  _hasCommand(command) {
+    if (this._strategyMap[command]) {
+      console.warn('指令已注册, 将覆盖原有指令')
+    }
+  }
+
   strategyInstall(a, b) {
     if (typeof a === 'object') {
       Object.keys(a).forEach(item => {
+        this._hasCommand(item)
         this._strategyMap[item] = a[item]
       })
     }
     if (typeof a === 'string' && b) {
+      this._hasCommand(a)
       this._strategyMap[a] = b
     }
   }
