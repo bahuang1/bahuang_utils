@@ -5,14 +5,15 @@ class DialogExecute{
   _strategyMap
   _store
   _router
-  init(vue, store, router, filters) {
-    if (!vue) {
+  init(option) {
+    if (!option.vue) {
       console.error('需要注入vue对象')
       return
     }
-    this.Vue = vue
-    store ? this._store = store : ''
-    router ? this._router = router : ''
+    this.Vue = option.vue
+    option.store ? this._store = option.store : ''
+    option.router ? this._router = option.router : ''
+    const filters = option.filters
     if (filters && typeof filters === 'object') {
       Object.keys(filters).forEach(key => {
         this.Vue.filter(key, filters[key])
