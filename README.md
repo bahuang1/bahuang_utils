@@ -1,7 +1,8 @@
 个人在项目中常用的一些方法，在此做一个分享
 ### dialogExecute 函数式调用 vue 弹框组件
 ```angular2html
-1. 初始化: 在 main.js 中引入 executeInit(Vue)
+option = { vue: Vue, store: store, router: router }
+1. 初始化: 在 main.js 中引入 executeInit(option)
 
 2. 注册指令: 在 execute('command')调用 之前 先 strategyInstall('command')
 
