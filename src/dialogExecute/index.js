@@ -5,14 +5,16 @@ class DialogExecute{
   _strategyMap
   _store
   _router
-  init(vue, store, router, filters) {
-    if (!vue) {
+  // 初始化方法，传入 vue， store，router等
+  init(option) {
+    if (!option.vue) {
       console.error('需要注入vue对象')
       return
     }
-    this.Vue = vue
-    store ? this._store = store : ''
-    router ? this._router = router : ''
+    this.Vue = option.vue
+    option.store ? this._store = option.store : ''
+    option.router ? this._router = option.router : ''
+    const filters = option.filters
     if (filters && typeof filters === 'object') {
       Object.keys(filters).forEach(key => {
         this.Vue.filter(key, filters[key])
@@ -22,7 +24,7 @@ class DialogExecute{
     this._singleVue = {}
     this._strategyMap = {}
   }
-
+  // 创建vue实例用于初始化 弹框组件 并将该实例返回
   _createVueComponent(vueOption) {
     const tempVueOption = {
       render: h => h(vueOption)
@@ -43,7 +45,7 @@ class DialogExecute{
       console.warn('指令已注册, 将覆盖原有指令')
     }
   }
-
+  // 弹框组件注册
   strategyInstall(a, b) {
     if (typeof a === 'object') {
       Object.keys(a).forEach(item => {
@@ -56,7 +58,7 @@ class DialogExecute{
       this._strategyMap[a] = b
     }
   }
-
+  // 弹框组件执行
   async execute(command, params) {
     if (!this._singleVue[command]) {
       let tempOption = null
